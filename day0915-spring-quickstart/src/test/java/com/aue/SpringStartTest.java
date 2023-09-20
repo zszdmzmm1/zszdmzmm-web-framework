@@ -1,6 +1,7 @@
 package com.aue;
 
 import com.aue.dao.impl.SimpleUserDao;
+import com.aue.service.impl.InitAndDestroyInterfaceUserService;
 import com.aue.service.impl.InitAndDestroyUserService;
 import com.aue.service.impl.InitAndDestroyXMLUserService;
 import com.aue.service.impl.SimpleUserService;
@@ -63,6 +64,16 @@ public class SpringStartTest {
         //控制台打出InitAndDestroyUserService.init, InitAndDestroyUserService.destroy
         Assertions.assertTrue(true);
     }
+
+    @Test
+    @DisplayName("实现InitializingBean与DisposableBean接口, 控制台打出InitAndDestroyInterfaceUserService.init, InitAndDestroyInterfaceUserService.destroy")
+    public void InitAndDestroyTest3() {
+        InitAndDestroyInterfaceUserService userService5 =(InitAndDestroyInterfaceUserService) ac.getBean("userService5");
+        //控制台打出InitAndDestroyInterfaceUserService.init, InitAndDestroyInterfaceUserService.destroy
+        Assertions.assertTrue(true);
+    }
+
+
 
     @AfterAll
     public static void afterTest() {
