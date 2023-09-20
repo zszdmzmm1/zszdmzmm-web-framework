@@ -2,6 +2,7 @@ package com.aue;
 
 import com.aue.config.ProxyBeanConfig;
 import com.aue.pojo.Person;
+import com.aue.service.UserService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
@@ -22,5 +23,12 @@ public class ProxyBeanTest {
     public void instanceTest() {
         ProxyBeanConfig beanConfig = ac.getBean(ProxyBeanConfig.class);
         Assertions.assertInstanceOf(Person.class, beanConfig.getPerson());
+    }
+
+    @Test
+    @DisplayName("对bean起名，同样可以获取, 或者用默认值(方法名)")
+    public void beanTest() {
+        Assertions.assertNotNull(ac.getBean("getPerson"));
+        Assertions.assertNotNull(ac.getBean("userService"));
     }
 }
