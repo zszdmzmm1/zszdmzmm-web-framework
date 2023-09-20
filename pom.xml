@@ -3,7 +3,10 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.aue</groupId>
   <artifactId>zszdmzmm-web-framework</artifactId>
-  <packaging>war</packaging>
+  <packaging>pom</packaging>
+  <modules>
+    <module>day0915-before-spring</module>
+  </modules>
   <properties>
     <maven.compiler.source>17</maven.compiler.source>
     <maven.compiler.target>17</maven.compiler.target>
