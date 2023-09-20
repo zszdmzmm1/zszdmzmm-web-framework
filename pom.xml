@@ -7,6 +7,7 @@
   <modules>
     <module>day0915-before-spring</module>
     <module>day0915-spring-quickstart</module>
+    <module>day0918-spring-annotation</module>
   </modules>
   <properties>
     <maven.compiler.source>17</maven.compiler.source>
