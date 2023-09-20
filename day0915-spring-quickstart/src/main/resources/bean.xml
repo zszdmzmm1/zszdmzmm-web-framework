@@ -14,6 +14,8 @@
 
     <bean id="userService3" class="com.aue.service.impl.InitAndDestroyUserService"/>
 
+    <bean id="userService4" class="com.aue.service.impl.InitAndDestroyXMLUserService" init-method="init" destroy-method="destroy"/>
+
 
     <bean id="userDao" class="com.aue.dao.impl.SimpleUserDao"/>
 </beans>

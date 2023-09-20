@@ -1,6 +1,7 @@
 package com.aue;
 
 import com.aue.dao.impl.SimpleUserDao;
+import com.aue.service.impl.InitAndDestroyXMLUserService;
 import com.aue.service.impl.InitAndDestroyUserService;
 import com.aue.service.impl.SimpleUserService;
 import org.junit.jupiter.api.Assertions;
@@ -54,5 +55,15 @@ public class SpringStartTest {
         ac.close();
         //控制台未打出InitAndDestroyUserService.init, InitAndDestroyUserService.destroy
         Assertions.assertFalse(false);
+    }
+
+    @Test
+    @DisplayName("只写了init和destroy方法，配置中加入指定方法, 控制台打出InitAndDestroyUserService.init, InitAndDestroyUserService.destroy")
+    public void InitAndDestroyTest2() {
+        ClassPathXmlApplicationContext ac = new ClassPathXmlApplicationContext("bean.xml");
+        InitAndDestroyXMLUserService userService4 =(InitAndDestroyXMLUserService) ac.getBean("userService4");
+        ac.close();
+        //控制台打出InitAndDestroyUserService.init, InitAndDestroyUserService.destroy
+        Assertions.assertTrue(true);
     }
 }
