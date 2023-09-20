@@ -12,5 +12,8 @@
         <constructor-arg name="userDao" ref="userDao"/>
     </bean>
 
+    <bean id="userService3" class="com.aue.service.impl.InitAndDestroyUserService"/>
+
+
     <bean id="userDao" class="com.aue.dao.impl.SimpleUserDao"/>
 </beans>

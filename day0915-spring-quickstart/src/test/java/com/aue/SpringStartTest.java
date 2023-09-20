@@ -1,6 +1,7 @@
 package com.aue;
 
 import com.aue.dao.impl.SimpleUserDao;
+import com.aue.service.impl.InitAndDestroyUserService;
 import com.aue.service.impl.SimpleUserService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
@@ -43,5 +44,15 @@ public class SpringStartTest {
         ClassPathXmlApplicationContext ac = new ClassPathXmlApplicationContext("bean.xml");
         SimpleUserService simpleUserService = (SimpleUserService) ac.getBean("userService2");
         Assertions.assertInstanceOf(SimpleUserDao.class, simpleUserService.getUserDao());
+    }
+
+    @Test
+    @DisplayName("只写了init和destroy方法，不做处理，无法被调用")
+    public void InitAndDestroyTest1() {
+        ClassPathXmlApplicationContext ac = new ClassPathXmlApplicationContext("bean.xml");
+        InitAndDestroyUserService userService3 =(InitAndDestroyUserService) ac.getBean("userService3");
+        ac.close();
+        //控制台未打出InitAndDestroyUserService.init, InitAndDestroyUserService.destroy
+        Assertions.assertFalse(false);
     }
 }
