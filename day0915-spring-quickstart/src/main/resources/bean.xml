@@ -3,8 +3,13 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
     <bean id="userService" class="com.aue.service.impl.SimpleUserService"/>
+
     <bean id="userService1" class="com.aue.service.impl.SimpleUserService">
         <property name="userDao" ref="userDao"/>
+    </bean>
+
+    <bean id="userService2" class="com.aue.service.impl.SimpleUserService">
+        <constructor-arg name="userDao" ref="userDao"/>
     </bean>
 
     <bean id="userDao" class="com.aue.dao.impl.SimpleUserDao"/>

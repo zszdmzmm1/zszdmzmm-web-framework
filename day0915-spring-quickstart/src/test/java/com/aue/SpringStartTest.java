@@ -1,6 +1,5 @@
 package com.aue;
 
-import com.aue.dao.UserDao;
 import com.aue.dao.impl.SimpleUserDao;
 import com.aue.service.impl.SimpleUserService;
 import org.junit.jupiter.api.Assertions;
@@ -36,5 +35,13 @@ public class SpringStartTest {
         SimpleUserService simpleUserService1 = (SimpleUserService) ac.getBean("userService1");
         Assertions.assertNull(simpleUserService.getUserDao());
         Assertions.assertInstanceOf(SimpleUserDao.class, simpleUserService1.getUserDao());
+    }
+
+    @Test
+    @DisplayName("通过配置文件与构造方法向容器注入依赖")
+    public void DITest1() {
+        ClassPathXmlApplicationContext ac = new ClassPathXmlApplicationContext("bean.xml");
+        SimpleUserService simpleUserService = (SimpleUserService) ac.getBean("userService2");
+        Assertions.assertInstanceOf(SimpleUserDao.class, simpleUserService.getUserDao());
     }
 }
