@@ -20,4 +20,25 @@
 
 
     <bean id="userDao" class="com.aue.dao.impl.SimpleUserDao"/>
+
+    <bean id="userDao1" class="com.aue.dao.impl.InjectDemoUserDao">
+        <property name="array" value="1, 2, 3"/>
+        <property name="set" value="'4', '5'"/>
+        <property name="list" value="'你', '我', '她'"/>
+        <property name="map">
+            <map>
+                <entry key="key1" value="value1"/>
+                <entry key="key2" value="value2"/>
+                <entry key="key3" value="value3"/>
+            </map>
+        </property>
+        <property name="properties">
+            <map>
+                <entry key="key4" value="value4"/>
+                <entry key="key5" value="value5"/>
+                <entry key="key6" value="value6"/>
+            </map>
+        </property>
+        <property name="straightValue" value="34"/>
+    </bean>
 </beans>

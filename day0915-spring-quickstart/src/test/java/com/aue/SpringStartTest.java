@@ -1,5 +1,6 @@
 package com.aue;
 
+import com.aue.dao.impl.InjectDemoUserDao;
 import com.aue.dao.impl.SimpleUserDao;
 import com.aue.service.impl.InitAndDestroyInterfaceUserService;
 import com.aue.service.impl.InitAndDestroyUserService;
@@ -71,6 +72,16 @@ public class SpringStartTest {
         InitAndDestroyInterfaceUserService userService5 =(InitAndDestroyInterfaceUserService) ac.getBean("userService5");
         //控制台打出InitAndDestroyInterfaceUserService.init, InitAndDestroyInterfaceUserService.destroy
         Assertions.assertTrue(true);
+    }
+
+    @Test
+    @DisplayName("Setter注入其他类型的数据")
+    public void otherDITest() {
+        InjectDemoUserDao userDao1 =(InjectDemoUserDao) ac.getBean("userDao1");
+        Assertions.assertInstanceOf(InjectDemoUserDao.class, userDao1);
+        Assertions.assertEquals(34, userDao1.getStraightValue());
+        Assertions.assertNotEquals(23, userDao1.getStraightValue());
+        Assertions.assertEquals("['你', '我', '她']", userDao1.getList().toString());
     }
 
 
