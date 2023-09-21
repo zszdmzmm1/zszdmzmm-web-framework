@@ -61,6 +61,19 @@ public class ComponentScanTest {
 
     }
 
+    @Test
+    @DisplayName("includeFilters FilterType.REGEX")
+    public void test4(){
+        ApplicationContext ac = new AnnotationConfigApplicationContext(ComponentScanConfig4.class);
+        //被选中的
+        Assertions.assertTrue(ac.containsBeanDefinition("userController"));
+        Assertions.assertTrue(ac.containsBeanDefinition("noComponentAnnotationController"));
+
+        //未被选中的
+        Assertions.assertFalse(ac.containsBeanDefinition("nopeUserDao"));
+
+    }
+
 
 
 }
