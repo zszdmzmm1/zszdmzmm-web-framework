@@ -87,6 +87,19 @@ public class ComponentScanTest {
 
     }
 
+    @Test
+    @DisplayName("excludeFilter")
+    public void test6(){
+        ApplicationContext ac = new AnnotationConfigApplicationContext(ComponentScanConfig6.class);
+        //被选中的
+        Assertions.assertTrue(ac.containsBeanDefinition("nopeUserService"));
+        Assertions.assertTrue(ac.containsBeanDefinition("nopeUserDao"));
+
+        //未被选中的
+        Assertions.assertFalse(ac.containsBeanDefinition("userController"));
+
+    }
+
 
 
 }
