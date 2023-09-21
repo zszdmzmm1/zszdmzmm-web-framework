@@ -100,6 +100,14 @@ public class ComponentScanTest {
 
     }
 
+    @Test
+    @DisplayName("excludeFilter需要有引入源才能生效，比如includeFilter")
+    public void test7(){
+        ApplicationContext ac = new AnnotationConfigApplicationContext(ComponentScanConfig7.class);
+        //未被exclude
+        Assertions.assertFalse(ac.containsBeanDefinition("userBean"));
+    }
+
 
 
 }
