@@ -1,6 +1,7 @@
 package com.aue;
 
 import com.aue.config.ComponentScanConfig;
+import com.aue.config.ComponentScanConfig2;
 import com.aue.config.ComponentScanFilterConfig;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
@@ -33,6 +34,19 @@ public class ComponentScanTest {
         //被过滤的
         Assertions.assertFalse(ac.containsBeanDefinition("nopeUserDao"));
         Assertions.assertFalse(ac.containsBeanDefinition("nopeUserService"));
+
+    }
+
+    @Test
+    @DisplayName("includeFilters 多个匹配")
+    public void test2(){
+        ApplicationContext ac = new AnnotationConfigApplicationContext(ComponentScanConfig2.class);
+        //被选中的
+        Assertions.assertTrue(ac.containsBeanDefinition("userController"));
+        Assertions.assertTrue(ac.containsBeanDefinition("nopeUserService"));
+
+        //未被选中的
+        Assertions.assertFalse(ac.containsBeanDefinition("nopeUserDao"));
 
     }
 }
