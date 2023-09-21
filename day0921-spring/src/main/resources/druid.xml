@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean name="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
+        <property name="DriverClassName" value="com.mysql.cj.jdbc.Driver"/>
+        <property name="Url" value="jdbc:mysql://localhost:3306/db1?serverTimezone=UT&amp;useUnicode=true&amp;characterEncoding=utf8&amp;useSSL=false"/>
+        <property name="Username" value="root"/>
+        <property name="password" value="0521"/>
+    </bean>
+</beans>
