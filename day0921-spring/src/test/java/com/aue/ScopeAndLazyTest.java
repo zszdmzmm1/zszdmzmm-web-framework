@@ -2,9 +2,7 @@ package com.aue;
 
 import com.aue.config.ScopeAndLazyConfig;
 import junit.framework.Assert;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
@@ -12,6 +10,26 @@ import java.io.*;
 
 
 public class ScopeAndLazyTest {
+    static ByteArrayOutputStream out;
+    @BeforeAll
+    public static void setOut(){
+        out = new ByteArrayOutputStream();
+        PrintStream printStream = new PrintStream(out);
+        System.setOut(printStream);
+    }
+
+    @BeforeEach
+    public void streamReset(){
+        out.reset();
+    }
+
+/*    @AfterEach
+    public void streamReset(){
+        out.reset();
+    }*/
+
+
+
     @Test
     @DisplayName("@Scope('prototype') 非单例")
     public void scopeTest() {
@@ -29,9 +47,6 @@ public class ScopeAndLazyTest {
     @Test
     @DisplayName("注解@Bean但未注解@Scope('prototype')在new容器时被调用")
     public void lazyTest() {
-        ByteArrayOutputStream out = new ByteArrayOutputStream();
-        PrintStream printStream = new PrintStream(out);
-        System.setOut(printStream);
         ApplicationContext ac = new AnnotationConfigApplicationContext(ScopeAndLazyConfig.class);
         Assertions.assertEquals("ScopeAndLazyConfig.getPerson1" + System.lineSeparator(), out.toString());
         ac.getBean("getPerson");
@@ -41,9 +56,6 @@ public class ScopeAndLazyTest {
     @Test
     @DisplayName("注解@Bea且注解@Scope('prototype')在new容器时不会被调用")
     public void lazyTest1() {
-        ByteArrayOutputStream out = new ByteArrayOutputStream();
-        PrintStream printStream = new PrintStream(out);
-        System.setOut(printStream);
         ApplicationContext ac = new AnnotationConfigApplicationContext(ScopeAndLazyConfig.class);
         ac.getBean("getPerson1");
         Assertions.assertEquals("ScopeAndLazyConfig.getPerson1" + System.lineSeparator(), out.toString());
@@ -52,9 +64,6 @@ public class ScopeAndLazyTest {
     @Test
     @DisplayName("注解@Bea且注解@lazy只有在new容器时会被调用")
     public void lazyTest2() {
-        ByteArrayOutputStream out = new ByteArrayOutputStream();
-        PrintStream printStream = new PrintStream(out);
-        System.setOut(printStream);
         ApplicationContext ac = new AnnotationConfigApplicationContext(ScopeAndLazyConfig.class);
         ac.getBean("getPerson2");
         Assertions.assertEquals("ScopeAndLazyConfig.getPerson1" + System.lineSeparator() + "ScopeAndLazyConfig.getPerson2" + System.lineSeparator(), out.toString());
