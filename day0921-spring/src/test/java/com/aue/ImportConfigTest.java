@@ -2,6 +2,7 @@ package com.aue;
 
 import com.aue.config.ImportBeanDefinitionRegistrarConfig;
 import com.aue.config.ImportConfig;
+import com.aue.config.ImportResourceConfig;
 import com.aue.config.ImportSelectorConfig;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
@@ -35,5 +36,15 @@ public class ImportConfigTest {
         Assertions.assertFalse(ac.containsBean("com.aue.pojo.Apple"));
         Assertions.assertFalse(ac.containsBean("com.aue.pojo.Cat"));
         Assertions.assertFalse(ac.containsBean("com.aue.pojo.Dog"));
+    }
+
+    @Test
+    @DisplayName("@ImportResource导入一个配置文件beans.xml")
+    public void importResourceTest() {
+        AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(ImportResourceConfig.class);
+        Assertions.assertTrue(ac.containsBean("puppy"));
+        Assertions.assertTrue(ac.containsBean("kitten"));
+        Assertions.assertFalse(ac.containsBean("pony"));
+        Assertions.assertFalse(ac.containsBean("donkey"));
     }
 }
