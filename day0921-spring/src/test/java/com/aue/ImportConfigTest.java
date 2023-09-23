@@ -1,5 +1,6 @@
 package com.aue;
 
+import com.aue.config.ImportBeanDefinitionRegistrarConfig;
 import com.aue.config.ImportConfig;
 import com.aue.config.ImportSelectorConfig;
 import org.junit.jupiter.api.Assertions;
@@ -23,5 +24,16 @@ public class ImportConfigTest {
         Assertions.assertTrue(ac.containsBean("com.aue.pojo.Apple"));
         Assertions.assertTrue(ac.containsBean("com.aue.pojo.Banana"));
         Assertions.assertFalse(ac.containsBean("com.aue.pojo.Cat"));
+    }
+
+    @Test
+    @DisplayName("@Import导入一个实现ImportBeanDefinitionRegistrar的类")
+    public void importBeanDefinitionRegistrarTest() {
+        AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(ImportBeanDefinitionRegistrarConfig.class);
+        Assertions.assertTrue(ac.containsBean("Apple"));
+        Assertions.assertTrue(ac.containsBean("Kitty"));
+        Assertions.assertFalse(ac.containsBean("com.aue.pojo.Apple"));
+        Assertions.assertFalse(ac.containsBean("com.aue.pojo.Cat"));
+        Assertions.assertFalse(ac.containsBean("com.aue.pojo.Dog"));
     }
 }
