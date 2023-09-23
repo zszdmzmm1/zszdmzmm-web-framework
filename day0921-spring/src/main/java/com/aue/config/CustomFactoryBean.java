@@ -16,4 +16,8 @@ public class CustomFactoryBean implements FactoryBean {
         return Apple.class;
     }
 
+    @Override
+    public boolean isSingleton() {
+        return true;
+    }
 }
