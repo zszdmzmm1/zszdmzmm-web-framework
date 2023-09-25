@@ -3,7 +3,9 @@ package com.aue;
 import com.aue.autowired2.MultipleBeanConfig;
 import com.aue.autowired2.PrimaryConfig;
 import com.aue.autowired2.PrimaryConfig1;
+import com.aue.autowired2.QualifierConfig;
 import com.aue.autowired2.bean.MyController;
+import com.aue.autowired2.bean.QualifierController;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -33,5 +35,12 @@ public class AutowiredConfig2Test {
         Assertions.assertEquals("other", myController.getMyBean().getDesc());
     }
 
+    @Test
+    @DisplayName("@Autowired @Qualifier 指定注入的bean的名字")
+    public void multipleTest3(){
+        AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(QualifierConfig.class);
+        QualifierController controller =(QualifierController) ac.getBean("qualifierController");
+        Assertions.assertEquals("other", controller.getMyBean().getDesc());
+    }
 
 }
