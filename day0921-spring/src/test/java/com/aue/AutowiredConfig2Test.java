@@ -2,6 +2,7 @@ package com.aue;
 
 import com.aue.autowired2.MultipleBeanConfig;
 import com.aue.autowired2.PrimaryConfig;
+import com.aue.autowired2.PrimaryConfig1;
 import com.aue.autowired2.bean.MyController;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
@@ -22,6 +23,14 @@ public class AutowiredConfig2Test {
         AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(PrimaryConfig.class);
         MyController myController =(MyController) ac.getBean("myController");
         Assertions.assertEquals("default", myController.getMyBean().getDesc());
+    }
+
+    @Test
+    @DisplayName("@Autowired 优先找带@Primary")
+    public void multipleTest2(){
+        AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(PrimaryConfig1.class);
+        MyController myController =(MyController) ac.getBean("myController");
+        Assertions.assertEquals("other", myController.getMyBean().getDesc());
     }
 
 
