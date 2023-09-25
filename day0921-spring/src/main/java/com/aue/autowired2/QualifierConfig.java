@@ -13,4 +13,10 @@ public class QualifierConfig {
     public MyBean myBean1(){
         return new MyBean("other");
     }
+
+    @Bean
+    @Primary
+    public MyBean myBean2(){
+        return new MyBean("another");
+    }
 }
