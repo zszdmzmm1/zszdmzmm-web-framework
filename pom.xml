@@ -9,6 +9,7 @@
     <module>day0915-spring-quickstart</module>
     <module>day0918-spring-annotation</module>
     <module>day0921-spring</module>
+      <module>day0926-mybatis-review</module>
   </modules>
   <properties>
     <maven.compiler.source>17</maven.compiler.source>
