@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.aue.mybatis.mapper.BlogListMapper">
+    <sql id="select-column"> id, use_id as userId, title, cover, publish_time as publishTime, last_update_time as lastUpdateTime, content, view, description, status </sql>
+
+    <resultMap id="BlogListMap" type="BlogList">
+        <result column="use_id" property="userId"/>
+        <result column="publish_time" property="publishTime"/>
+        <result column="last_update_time" property="lastUpdateTime"/>
+    </resultMap>
+
+    <select id="selectAll" resultMap="BlogListMap">
+        select * from blog_list;
+    </select>
+
+    <select id="selectById" resultMap="BlogListMap">
+        select * from blog_list where id = #{id};
+    </select>
+
+    <select id="selectByCondition" resultMap="BlogListMap">
+        select * from blog_list
+        where title like '%${title}%'
+        and content like '%${content}%'
+        and status = #{status};
+    </select>
+
+    <select id="selectByConditionWithDynamicSql" resultMap="BlogListMap">
+        select * from blog_list
+        <where>
+            <if test="status != 0">
+                and status = #{status}
+            </if>
+            <if test="title != null and title != ''">
+                and title like '%${title}%'
+            </if>
+            <if test="content != null and content != ''">
+                and content like '%#{content}%'
+            </if>
+        </where>
+    </select>
+
+    <select id="selectByConditionWithOneCondition" resultMap="BlogListMap">
+        select * from blog_list
+        <choose>
+            <when test="status != 0">
+                where status = #{status}
+            </when>
+            <when test="title != null and title != ''">
+                where title like '%${title}%'
+            </when>
+            <when test="content != null and content != ''">
+                where content like '%${content}%'
+            </when>
+        </choose>
+    </select>
+
+    <insert id="add" useGeneratedKeys="true" keyProperty="id">
+        insert into blog_list (user_id, title, cover, publish_time, last_update_time, content, view, description, status)
+        values (#{userId}, #{title}, #{cover}, #{publishTime}, #{lastUpdateTime}, #{content}, #{view}, #{description}, #{status})
+    </insert>
+
+    <update id="update">
+        update blog_list
+        <set>
+            <if test="blogList.title != null and blogList.title != ''">
+                title = #{blogList.title},
+            </if>
+            <if test="blogList.content != null and blogList.content != ''">
+                content = #{blogList.content},
+            </if>
+            <if test="blogList.description != null and blogList.description != ''">
+                description= #{blogList.description},
+            </if>
+            <if test="blogList.status != 0">
+                status = #{blogList.status},
+            </if>
+        </set>
+        where id = #{arg0}
+    </update>
+
+    <delete id="deleteById">
+        delete from blog_list
+        where id = #{id}
+    </delete>
+
+    <delete id="deleteByIds">
+        delete from blog_list where id in
+        <foreach collection="array" separator="," open="(" close=")" item="id">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>
