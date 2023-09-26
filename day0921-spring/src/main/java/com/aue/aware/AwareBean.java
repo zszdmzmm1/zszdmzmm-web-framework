@@ -8,7 +8,8 @@ import org.springframework.context.EmbeddedValueResolverAware;
 import org.springframework.util.StringValueResolver;
 
 public class AwareBean implements BeanNameAware, ApplicationContextAware, EmbeddedValueResolverAware {
-    String BeanName;
+    private String BeanName;
+    private StringValueResolver embeddedValueResolver;
 
     @Override
     public void setBeanName(String name) {
@@ -25,5 +26,13 @@ public class AwareBean implements BeanNameAware, ApplicationContextAware, Embedd
 
     @Override
     public void setEmbeddedValueResolver(StringValueResolver resolver) {
+        this.embeddedValueResolver= resolver;
+    }
+
+    public String getPropertiesValue(String key) {
+        if (key.contains("$")) {
+            return this.embeddedValueResolver.resolveStringValue(key);
+        }
+        return key;
     }
 }

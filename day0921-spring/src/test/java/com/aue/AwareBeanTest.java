@@ -9,10 +9,11 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 
 public class AwareBeanTest {
     @Test
-    @DisplayName("")
-    public void Test() {
+    @DisplayName("aware 系列接口的示例")
+    public void test() {
         AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(AwareConfig.class);
         AwareBean bean =(AwareBean) ac.getBean("getAwareBean");
+        Assertions.assertEquals(System.getProperty("os.name"), bean.getPropertiesValue("${os.name}"));
         Assertions.assertEquals(bean.getBeanName(), "getAwareBean");
     }
 }
