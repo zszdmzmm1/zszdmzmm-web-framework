@@ -5,7 +5,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 
 
-@ComponentScan("com.aue")
+@ComponentScan({"com.aue.aop", "com.aue.dao"})
 @Configuration
 @EnableAspectJAutoProxy
 public class StartTimeAopConfig {
