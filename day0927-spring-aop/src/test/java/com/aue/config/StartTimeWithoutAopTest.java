@@ -69,4 +69,13 @@ public class StartTimeWithoutAopTest {
         userDao.update();
         Assertions.assertTrue(out.toString().contains("endTime"));
     }
+
+    @Test
+    @DisplayName("加入aop, @Around")
+    public void test3() {
+        AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(StartTimeAopConfig.class);
+        UserDao userDao = ac.getBean(UserDao.class);
+        userDao.delete();
+        Assertions.assertTrue(out.toString().contains("com.aue.dao.UserDao.delete()"));
+    }
 }
