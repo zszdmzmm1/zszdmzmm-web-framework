@@ -12,6 +12,7 @@
       <module>day0926-mybatis-review</module>
     <module>day0926-spring-mmybatis</module>
     <module>day0927-spring-aop</module>
+      <module>day0927-spring-transaction</module>
   </modules>
   <properties>
     <maven.compiler.source>17</maven.compiler.source>
