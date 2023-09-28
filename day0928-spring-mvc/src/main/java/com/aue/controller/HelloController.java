@@ -1,6 +1,7 @@
 package com.aue.controller;
 
 import com.aue.service.UserService;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,5 +18,11 @@ public class HelloController {
         userService.save();
         System.out.println("HelloController.helloController");
         return "helloSpringWebMvc";
+    }
+
+    @RequestMapping("user/param")
+    @ResponseBody
+    public String param(String name, String password) {
+        return "User:" + name + System.lineSeparator() + "Password:" + password;
     }
 }
