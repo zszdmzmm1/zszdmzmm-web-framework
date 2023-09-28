@@ -1,3 +1,7 @@
 ### user/param
 GET http://localhost:8080/day0928_spring_mvc_war/user/param?name=hjf&password=secret
 Accept: application/json
+
+### user/param-not-match
+GET http://localhost:8080/day0928_spring_mvc_war/user/param-not-match?userName=hjf&password=secret
+Accept: application/json
