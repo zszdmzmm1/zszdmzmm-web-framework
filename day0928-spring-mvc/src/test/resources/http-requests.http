@@ -18,3 +18,8 @@ Content-Type: application/json
   "name" : "Bob",
   "password": "secret"
 }
+
+
+### user/date-time-format
+GET http://localhost:8080/day0928_spring_mvc_war/user/date-time-format?date=1234-12-14&date2=2023/09/30 09:50:32
+Content-Type: application/json

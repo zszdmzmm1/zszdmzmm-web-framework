@@ -3,11 +3,14 @@ package com.aue.controller;
 import com.aue.pojo.User;
 import com.aue.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import java.util.Date;
 
 @Controller
 public class HelloController {
@@ -44,5 +47,12 @@ public class HelloController {
     @ResponseBody
     public String bodyPojo(@RequestBody User user) {
         return user.toString();
+    }
+
+    @RequestMapping("user/date-time-format")
+    @ResponseBody
+    public String dateTimeFormat(@DateTimeFormat(pattern = "yyyy-MM-dd") Date date, @DateTimeFormat(pattern = "yyyy/MM/dd HH:mm:ss") Date date2) {
+        return "date:" + date.toString() + System.lineSeparator() +
+                "date2:" + date2.toString();
     }
 }
