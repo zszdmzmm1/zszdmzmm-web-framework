@@ -5,3 +5,16 @@ Accept: application/json
 ### user/param-not-match
 GET http://localhost:8080/day0928_spring_mvc_war/user/param-not-match?userName=hjf&password=secret
 Accept: application/json
+
+### user/param-pojo
+GET http://localhost:8080/day0928_spring_mvc_war/user/param-pojo?name=hjf&password=secret
+Accept: application/json
+
+### user/body-pojo
+GET http://localhost:8080/day0928_spring_mvc_war/user/body-pojo
+Content-Type: application/json
+
+{
+  "name" : "Bob",
+  "password": "secret"
+}

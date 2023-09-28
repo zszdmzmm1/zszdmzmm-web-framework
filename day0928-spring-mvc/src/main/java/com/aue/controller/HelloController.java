@@ -1,8 +1,10 @@
 package com.aue.controller;
 
+import com.aue.pojo.User;
 import com.aue.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -30,5 +32,17 @@ public class HelloController {
     @ResponseBody
     public String paramNotMatch(@RequestParam("userName") String name, String password) {
         return "User:" + name + System.lineSeparator() + "Password:" + password;
+    }
+
+    @RequestMapping("user/param-pojo")
+    @ResponseBody
+    public String paramPojo(User user) {
+        return user.toString();
+    }
+
+    @RequestMapping("user/body-pojo")
+    @ResponseBody
+    public String bodyPojo(@RequestBody User user) {
+        return user.toString();
     }
 }
