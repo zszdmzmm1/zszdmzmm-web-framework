@@ -43,3 +43,7 @@ Content-Type: application/json
 ### request/mapping-method-get
 GET http://localhost:8080/day0928_spring_mvc_war/request/mapping-method-get?method=get
 Content-Type: application/json
+
+### request/get-mapping
+GET http://localhost:8080/day0928_spring_mvc_war/request/get-mapping?method=get
+Content-Type: application/json

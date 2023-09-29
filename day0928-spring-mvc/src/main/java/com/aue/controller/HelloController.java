@@ -91,4 +91,10 @@ public class HelloController {
     public String mappingMethodGet(String method) {
         return "Method:" + method;
     }
+
+    @GetMapping("request/get-mapping")
+    @ResponseBody
+    public String getMapping(String method) {
+        return "Method:" + method;
+    }
 }
