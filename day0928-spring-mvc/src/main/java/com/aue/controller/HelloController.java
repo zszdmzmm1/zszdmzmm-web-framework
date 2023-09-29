@@ -66,4 +66,13 @@ public class HelloController {
     public String text() {
         return "This just a text.";
     }
+
+    @RequestMapping("response/json")
+    @ResponseBody
+    public User json() {
+        User user = new User();
+        user.setName("hjf");
+        user.setPassword("secret");
+        return user;
+    }
 }
