@@ -10,7 +10,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Controller
 public class HelloController {
@@ -74,5 +76,16 @@ public class HelloController {
         user.setName("hjf");
         user.setPassword("secret");
         return user;
+    }
+
+    @RequestMapping("response/json-list")
+    @ResponseBody
+    public List<User> jsonList() {
+        User user = new User("hjf", "secret");
+        User user1 = new User("lrh", "stupid");
+        List<User> userList = new ArrayList<>();
+        userList.add(user);
+        userList.add(user1);
+        return userList;
     }
 }
