@@ -23,3 +23,7 @@ Content-Type: application/json
 ### user/date-time-format
 GET http://localhost:8080/day0928_spring_mvc_war/user/date-time-format?date=1234-12-14&date2=2023/09/30 09:50:32
 Content-Type: application/json
+
+### response/page
+GET http://localhost:8080/day0928_spring_mvc_war/response/page
+Content-Type: application/json

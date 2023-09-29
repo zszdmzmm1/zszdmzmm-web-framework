@@ -55,4 +55,9 @@ public class HelloController {
         return "date:" + date.toString() + System.lineSeparator() +
                 "date2:" + date2.toString();
     }
+
+    @RequestMapping("response/page")
+    public String page() {
+        return "../index.jsp";
+    }
 }
