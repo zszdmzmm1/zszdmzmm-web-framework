@@ -27,3 +27,7 @@ Content-Type: application/json
 ### response/page
 GET http://localhost:8080/day0928_spring_mvc_war/response/page
 Content-Type: application/json
+
+### response/text
+GET http://localhost:8080/day0928_spring_mvc_war/response/text
+Content-Type: application/json

@@ -60,4 +60,10 @@ public class HelloController {
     public String page() {
         return "../index.jsp";
     }
+
+    @RequestMapping("response/text")
+    @ResponseBody
+    public String text() {
+        return "This just a text.";
+    }
 }
