@@ -9,7 +9,7 @@ public interface PostService {
 
     int add(Post post);
 
-    Post selectPostById(int id);
+    String selectPostById(int id);
 
     List<Post> selectPostsByConditions(String keyword, String[] keys);
 

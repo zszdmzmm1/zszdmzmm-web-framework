@@ -25,9 +25,9 @@ public class PostController {
         return postService.add(post);
     }
 
-    @GetMapping("article")
+    @GetMapping(path="article")
     @ResponseBody
-    public Post selectPostById(int id) {
+    public String selectPostById(int id) {
         return postService.selectPostById(id);
     }
 

@@ -3,6 +3,9 @@ package com.aue.service.impl;
 import com.aue.dao.PostMapper;
 import com.aue.pojo.Post;
 import com.aue.service.PostService;
+import org.commonmark.node.Node;
+import org.commonmark.parser.Parser;
+import org.commonmark.renderer.html.HtmlRenderer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -28,8 +31,12 @@ public class PostServiceImpl implements PostService {
     }
 
     @Override
-    public Post selectPostById(int id) {
-        return postMapper.selectById(id);
+    public String selectPostById(int id) {
+        Post post = postMapper.selectById(id);
+        Parser parser = Parser.builder().build();
+        Node document = parser.parse(post.getContent());
+        HtmlRenderer renderer = HtmlRenderer.builder().build();
+        return renderer.render(document);
     }
 
     @Override
