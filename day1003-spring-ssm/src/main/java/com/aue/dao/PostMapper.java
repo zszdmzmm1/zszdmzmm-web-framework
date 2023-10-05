@@ -20,11 +20,11 @@ public interface PostMapper {
 
     List<Post> selectByConditionWithDynamicSql(Post post);
 
-    List<Post> selectByConditionWithOneCondition(Post blogList);
+    List<Post> selectByConditionWithOneCondition(Post post);
 
-    void add(Post post);
+    int add(Post post);
 
-    void update(int i, @Param("blogList") Post post);
+    void update(int i, @Param("post") Post post);
 
     void deleteById(int i);
 

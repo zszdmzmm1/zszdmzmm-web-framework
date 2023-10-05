@@ -60,17 +60,17 @@
     <update id="update">
         update blog_list
         <set>
-            <if test="blogList.title != null and blogList.title != ''">
-                title = #{blogList.title},
+            <if test="post.title != null and post.title != ''">
+                title = #{post.title},
             </if>
-            <if test="blogList.content != null and blogList.content != ''">
-                content = #{blogList.content},
+            <if test="post.content != null and post.content != ''">
+                content = #{post.content},
             </if>
-            <if test="blogList.description != null and blogList.description != ''">
-                description= #{blogList.description},
+            <if test="post.description != null and post.description != ''">
+                description= #{post.description},
             </if>
-            <if test="blogList.status != 0">
-                status = #{blogList.status},
+            <if test="post.status != 0">
+                status = #{post.status},
             </if>
         </set>
         where id = #{arg0}

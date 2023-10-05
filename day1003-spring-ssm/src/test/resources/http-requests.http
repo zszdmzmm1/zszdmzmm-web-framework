@@ -1,3 +1,15 @@
 ### test
-GET http://localhost:8080/day1003_spring_ssm_war/test
+GET http://localhost:8080/day1003_spring_ssm_war/postList
 Content-Type: application/json
+
+###
+GET http://localhost:8080/day1003_spring_ssm_war/article?id=1
+Content-Type: application/json
+
+###
+POST http://localhost:8080/day1003_spring_ssm_war/article
+Content-Type: application/json
+
+{
+  "id": 1
+}
