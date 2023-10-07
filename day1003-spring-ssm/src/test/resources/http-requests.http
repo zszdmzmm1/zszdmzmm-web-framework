@@ -1,9 +1,40 @@
-### test
-GET http://localhost:8080/day1003_spring_ssm_war/postList
+### posts.index
+GET http://localhost:8080/day1003_spring_ssm_war/posts
+Accept: application/json
+
+### posts.index by page
+GET http://localhost:8080/day1003_spring_ssm_war/posts?page=2&perPage=2
+Accept: application/json
+
+### posts.store
+POST http://localhost:8080/day1003_spring_ssm_war/posts
 Content-Type: application/json
 
-###
-POST http://localhost:8080/day1003_spring_ssm_war/article
-Content-Type: application/x-www-form-urlencoded
+{
+  "userId": "1",
+  "title": "post-title-11",
+  "cover": "/img/cover/default-cover.png",
+  "publishTime": "2023-09-11 11:28:47",
+  "lastUpdateTime": "2023-09-11 11:28:47",
+  "content": "## post-title-11 content\nthe content paragraph 1...",
+  "view": "0",
+  "description": "post-title-11 description",
+  "status": "1"
+}
 
-id=2
+### posts.show
+GET http://localhost:8080/day1003_spring_ssm_war/posts/3
+Accept: application/json
+
+### posts.update
+PUT http://localhost:8080/day1003_spring_ssm_war/posts/209
+Content-Type: application/json
+
+{
+  "title": "post-title-11__update",
+  "status": -1
+}
+
+### posts.delete
+DELETE http://localhost:8080/day1003_spring_ssm_war/posts/114
+Content-Type: application/json

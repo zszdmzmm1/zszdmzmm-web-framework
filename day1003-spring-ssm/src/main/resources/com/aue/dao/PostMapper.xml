@@ -7,8 +7,10 @@
         <result column="last_update_time" property="lastUpdateTime"/>
     </resultMap>
 
-    <select id="selectAll" resultMap="post">
-        select * from blog_list;
+    <select id="selectPostsByPage" resultMap="post">
+        select *
+        from blog_list
+        limit #{startIndex}, #{endIndex}
     </select>
 
     <select id="selectById" resultMap="post">
@@ -60,20 +62,20 @@
     <update id="update">
         update blog_list
         <set>
-            <if test="post.title != null and post.title != ''">
-                title = #{post.title},
+            <if test="title != null and title != ''">
+                title = #{title},
             </if>
-            <if test="post.content != null and post.content != ''">
-                content = #{post.content},
+            <if test="content != null and content != ''">
+                content = #{content},
             </if>
-            <if test="post.description != null and post.description != ''">
-                description= #{post.description},
+            <if test="description != null and description != ''">
+                description= #{description},
             </if>
-            <if test="post.status != 0">
-                status = #{post.status},
+            <if test="status != 0">
+                status = #{status},
             </if>
         </set>
-        where id = #{arg0}
+        where id = #{id}
     </update>
 
     <delete id="deleteById">

@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Map;
 
 public interface PostMapper {
-    List<Post> selectAll();
+    List<Post> selectPostsByPage(@Param("startIndex")int startIndex, @Param("endIndex")int endIndex);
 
     Post selectById(int id);
 
@@ -24,7 +24,7 @@ public interface PostMapper {
 
     int add(Post post);
 
-    void update(int i, @Param("post") Post post);
+    void update(Post post);
 
     void deleteById(int i);
 

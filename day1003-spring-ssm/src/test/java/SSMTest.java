@@ -12,6 +12,6 @@ public class SSMTest {
 
     @Test
     public void test() {
-        System.out.println(mapper.selectAll());
+        //System.out.println(mapper.selectAll());
     }
 }

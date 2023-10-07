@@ -4,42 +4,45 @@ import com.aue.pojo.Post;
 import com.aue.service.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @Controller
+@EnableTransactionManagement
 public class PostController {
     @Autowired
     private PostService postService;
 
-    @GetMapping("postList")
+    @GetMapping("posts")
     @ResponseBody
-    public List<Post> selectAllPosts() {
-        return postService.selectAllPosts();
+    public List<Post> index(@RequestParam(defaultValue = "1") int page, @RequestParam(defaultValue = "4")int perPage) {
+        return postService.selectPostsByPage(page, perPage);
     }
 
-    @PostMapping("add")
+    @PostMapping("posts")
     @ResponseBody
-    public int add(Post post) {
+    public int store(@RequestBody Post post) {
         return postService.add(post);
     }
 
-    @PostMapping(path="article", produces = "application/json;charset=UTF-8")
+    @GetMapping("posts/{id}")
     @ResponseBody
-    public String selectPostById(int id) {
+    public String show(@PathVariable int id) {
         return postService.selectPostById(id);
     }
 
-    @PostMapping("selectByConditions")
+
+    @PutMapping("posts/{id}")
     @ResponseBody
-    public List<Post> selectPostsByConditions(String keyword, String[] keys) {
-        return postService.selectPostsByConditions(keyword, keys);
+    public void update(@PathVariable int id, @RequestBody Post post) {
+        postService.update(id, post);
     }
 
-    @PostMapping("update")
+    @DeleteMapping("posts/{id}")
     @ResponseBody
-    public void update(Post post) {
-        postService.update(post);
+    public void delete(@PathVariable int id) {
+        postService.delete(id);
     }
 }

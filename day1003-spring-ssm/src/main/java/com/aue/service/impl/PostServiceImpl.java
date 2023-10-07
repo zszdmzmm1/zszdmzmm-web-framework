@@ -9,7 +9,6 @@ import org.commonmark.renderer.html.HtmlRenderer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -21,8 +20,8 @@ public class PostServiceImpl implements PostService {
     private PostMapper postMapper;
 
     @Override
-    public List<Post> selectAllPosts() {
-        return postMapper.selectAll();
+    public List<Post> selectPostsByPage(int page, int perPage) {
+        return postMapper.selectPostsByPage((page - 1) * perPage, perPage);
     }
 
     @Override
@@ -60,16 +59,21 @@ public class PostServiceImpl implements PostService {
         }
         return postList;*/
         Map<String, Object> postMap = new HashMap<>();
-        for(String key: keys){
+        for (String key : keys) {
             postMap.put(key, keyword);
         }
         return new ArrayList<>(postMapper.selectByCondition(postMap));
     }
 
     @Override
-    public void update(Post post) {
-        int id = post.getId();
-        postMapper.update(id, post);
+    public void update(int id, Post post) {
+        post.setId(id);
+        postMapper.update(post);
+    }
+
+    @Override
+    public void delete(int id) {
+        postMapper.deleteById(id);
     }
 }
 
