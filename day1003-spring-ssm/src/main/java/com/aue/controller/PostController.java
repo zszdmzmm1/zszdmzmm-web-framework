@@ -25,7 +25,7 @@ public class PostController {
         return postService.add(post);
     }
 
-    @GetMapping(path="article", produces = "application/json;charset=UTF-8")
+    @PostMapping(path="article", produces = "application/json;charset=UTF-8")
     @ResponseBody
     public String selectPostById(int id) {
         return postService.selectPostById(id);
