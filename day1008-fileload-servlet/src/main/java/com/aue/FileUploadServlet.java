@@ -1,14 +1,16 @@
 package com.aue;
 
-import jakarta.servlet.ServletConfig;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.MultipartConfig;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.Part;
 
+import java.io.File;
 import java.io.IOException;
+
 @WebServlet("/fileUploadServlet")
 @MultipartConfig(
         location = "",
@@ -17,12 +19,19 @@ import java.io.IOException;
         fileSizeThreshold = 0
 )
 public class FileUploadServlet extends HttpServlet {
-    @Override
-    public void init(ServletConfig config) throws ServletException {
-    }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        Part avatar = req.getPart("avatar");
+        String url = req.getServletContext().getRealPath("image");
+        File file = new File(url);
+        if (!file.exists()) {
+            boolean isDirsExist = file.mkdirs();
+            if(isDirsExist){
+                avatar.write(url + File.separator + avatar.getSubmittedFileName());
+            }
+        }
+        System.out.println("file name:" + avatar.getSubmittedFileName());
         System.out.println("description:" + req.getParameter("description"));
     }
 }
