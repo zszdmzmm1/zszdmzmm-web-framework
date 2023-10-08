@@ -15,7 +15,6 @@ import java.io.IOException;
 public class FileLoad {
 
     @PostMapping("fileUploadServlet")
-    @ResponseBody
     public String fileLoad(@RequestPart MultipartFile avatar, @RequestParam String description, HttpSession httpSession) throws IOException {
         String path = httpSession.getServletContext().getRealPath("image");
         String fileName = avatar.getOriginalFilename();
@@ -28,6 +27,6 @@ public class FileLoad {
             }
         }
         System.out.println("description" + description);
-        return finalPath;
+        return "/image/" + fileName;
     }
 }
