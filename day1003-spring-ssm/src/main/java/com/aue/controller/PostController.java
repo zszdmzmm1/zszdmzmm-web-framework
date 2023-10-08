@@ -17,7 +17,7 @@ public class PostController {
 
     @GetMapping("posts")
     @ResponseBody
-    public List<Post> index(@RequestParam(defaultValue = "1") int page, @RequestParam(defaultValue = "4")int perPage) {
+    public List<Post> index(@RequestParam(defaultValue = "1") int page, @RequestParam(defaultValue = "4") int perPage) {
         return postService.selectPostsByPage(page, perPage);
     }
 
@@ -44,5 +44,11 @@ public class PostController {
     @ResponseBody
     public void delete(@PathVariable int id) {
         postService.delete(id);
+    }
+
+    @PostMapping("posts/search")
+    @ResponseBody
+    public List<Post> search(@RequestBody Post post) {
+        return postService.selectPostsByConditions(post);
     }
 }

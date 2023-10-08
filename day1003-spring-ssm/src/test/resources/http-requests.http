@@ -38,3 +38,12 @@ Content-Type: application/json
 ### posts.delete
 DELETE http://localhost:8080/day1003_spring_ssm_war/posts/114
 Content-Type: application/json
+
+### posts.search
+POST http://localhost:8080/day1003_spring_ssm_war/posts/search
+Content-Type: application/json
+
+{
+  "title": "数据",
+  "content": "数据"
+}

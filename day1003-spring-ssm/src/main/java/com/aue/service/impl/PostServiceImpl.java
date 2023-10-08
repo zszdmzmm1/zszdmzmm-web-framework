@@ -39,30 +39,8 @@ public class PostServiceImpl implements PostService {
     }
 
     @Override
-    public List<Post> selectPostsByConditions(String keyword, String[] keys) {
-        /*List<Post> postList = new ArrayList<>();
-        for(String key: keys){
-            Post post = new Post();
-            Field keyField;
-            try {
-                keyField = post.getClass().getField("keys");
-            } catch (NoSuchFieldException e) {
-                throw new RuntimeException(e);
-            }
-            keyField.setAccessible(true);
-            try {
-                keyField.set(post, keyword);
-            } catch (IllegalAccessException e) {
-                throw new RuntimeException(e);
-            }
-            postList.addAll(postMapper.selectByCondition(post));
-        }
-        return postList;*/
-        Map<String, Object> postMap = new HashMap<>();
-        for (String key : keys) {
-            postMap.put(key, keyword);
-        }
-        return new ArrayList<>(postMapper.selectByCondition(postMap));
+    public List<Post> selectPostsByConditions(Post post) {
+        return new ArrayList<>(postMapper.selectByConditionWithDynamicSql(post));
     }
 
     @Override

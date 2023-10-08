@@ -14,7 +14,7 @@ public interface PostService {
 
     String selectPostById(int id);
 
-    List<Post> selectPostsByConditions(String keyword, String[] keys);
+    List<Post> selectPostsByConditions(Post post);
     @Transactional
     void update(int id, Post post);
     @Transactional

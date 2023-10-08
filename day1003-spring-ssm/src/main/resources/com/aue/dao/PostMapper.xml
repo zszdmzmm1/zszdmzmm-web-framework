@@ -34,7 +34,7 @@
                 and title like '%${title}%'
             </if>
             <if test="content != null and content != ''">
-                and content like '%#{content}%'
+                and content like '%${content}%'
             </if>
         </where>
     </select>
