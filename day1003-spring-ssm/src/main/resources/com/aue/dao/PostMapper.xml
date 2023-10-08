@@ -10,7 +10,7 @@
     <select id="selectPostsByPage" resultMap="post">
         select *
         from blog_list
-        limit #{startIndex}, #{endIndex}
+        limit #{offset}, #{rowCount}
     </select>
 
     <select id="selectById" resultMap="post">

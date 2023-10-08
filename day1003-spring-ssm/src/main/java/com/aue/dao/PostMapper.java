@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Map;
 
 public interface PostMapper {
-    List<Post> selectPostsByPage(@Param("startIndex")int startIndex, @Param("endIndex")int endIndex);
+    List<Post> selectPostsByPage(@Param("offset")int offset, @Param("rowCount")int rowCount);
 
     Post selectById(int id);
 
