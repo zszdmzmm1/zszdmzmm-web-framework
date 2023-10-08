@@ -15,6 +15,7 @@
       <module>day0927-spring-transaction</module>
       <module>day0928-spring-mvc</module>
     <module>day1003-spring-ssm</module>
+    <module>day1008-fileload-servlet</module>
   </modules>
   <properties>
     <maven.compiler.source>17</maven.compiler.source>
