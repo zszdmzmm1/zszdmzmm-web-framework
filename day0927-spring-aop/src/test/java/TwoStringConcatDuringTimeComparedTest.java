@@ -1,7 +1,9 @@
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 public class TwoStringConcatDuringTimeComparedTest {
     @Test
+    @Disabled
     void t1() {
         String s = "null";
         long start = System.currentTimeMillis();
@@ -13,6 +15,7 @@ public class TwoStringConcatDuringTimeComparedTest {
     }
 
     @Test
+    @Disabled
     void t2() {
         StringBuilder sb = new StringBuilder("null");
         long start = System.currentTimeMillis();

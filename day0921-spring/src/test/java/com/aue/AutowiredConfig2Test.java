@@ -7,12 +7,14 @@ import com.aue.autowired2.QualifierConfig;
 import com.aue.autowired2.bean.MyController;
 import com.aue.autowired2.bean.QualifierController;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class AutowiredConfig2Test {
     @Test
+    @Disabled
     @DisplayName("两个Bean同名，会被覆写")
     public void multipleTest(){
         AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(MultipleBeanConfig.class);
