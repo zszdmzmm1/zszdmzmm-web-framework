@@ -4,7 +4,10 @@ package com.aue.controller;
 import jakarta.servlet.annotation.MultipartConfig;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
@@ -20,13 +23,18 @@ public class FileLoad {
         String fileName = avatar.getOriginalFilename();
         File file = new File(path);
         String finalPath = path + File.separator + fileName;
-        if(!file.exists()){
+        if (!file.exists()) {
             boolean isDirExist = file.mkdirs();
-            if(isDirExist){
+            if (isDirExist) {
                 avatar.transferTo(new File(finalPath));
             }
         }
         System.out.println("description" + description);
         return "/image/" + fileName;
+    }
+
+    @GetMapping("view_example")
+    public String viewExample() {
+        return "example";
     }
 }
