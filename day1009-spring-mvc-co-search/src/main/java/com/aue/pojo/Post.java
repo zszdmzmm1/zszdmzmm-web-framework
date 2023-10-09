@@ -14,4 +14,6 @@ public class Post {
     private int view;
     private String description;
     private int status;
+
+    private User user;
 }

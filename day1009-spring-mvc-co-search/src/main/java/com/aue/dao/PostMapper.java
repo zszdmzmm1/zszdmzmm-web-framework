@@ -31,4 +31,6 @@ public interface PostMapper {
     void deleteByIds(int[] ids);
 
     void deleteByIds(List<Integer> ids);
+
+    List<Post> selectPostsAndUser();
 }

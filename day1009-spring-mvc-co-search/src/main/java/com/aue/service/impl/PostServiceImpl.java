@@ -10,9 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 @Service
 public class PostServiceImpl implements PostService {
@@ -52,6 +50,11 @@ public class PostServiceImpl implements PostService {
     @Override
     public void delete(int id) {
         postMapper.deleteById(id);
+    }
+
+    @Override
+    public List<Post> selectPostsAndUser() {
+        return postMapper.selectPostsAndUser();
     }
 }
 

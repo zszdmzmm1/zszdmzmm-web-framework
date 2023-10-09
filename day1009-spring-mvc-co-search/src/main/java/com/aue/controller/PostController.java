@@ -51,4 +51,10 @@ public class PostController {
     public List<Post> search(@RequestBody Post post) {
         return postService.selectPostsByConditions(post);
     }
+
+    @GetMapping("posts/co-search")
+    @ResponseBody
+    public List<Post> coSearch() {
+        return postService.selectPostsAndUser();
+    }
 }

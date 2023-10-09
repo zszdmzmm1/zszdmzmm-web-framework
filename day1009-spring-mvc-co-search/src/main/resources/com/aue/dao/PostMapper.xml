@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.aue.dao.PostMapper">
-    <resultMap id="post" type="Post">
-        <result column="use_id" property="userId"/>
+    <resultMap id="post" type="Post" autoMapping="true">
+        <result column="user_id" property="userId"/>
         <result column="publish_time" property="publishTime"/>
         <result column="last_update_time" property="lastUpdateTime"/>
+        <association property="user" javaType="User" autoMapping="true"/>
     </resultMap>
 
     <select id="selectPostsByPage" resultMap="post">
@@ -52,6 +53,12 @@
                 where content like '%${content}%'
             </when>
         </choose>
+    </select>
+
+    <select id="selectPostsAndUser" resultMap="post">
+        select *
+        from blog_list
+                 left join user on blog_list.user_id = user.id;
     </select>
 
     <insert id="add" useGeneratedKeys="true" keyProperty="id">

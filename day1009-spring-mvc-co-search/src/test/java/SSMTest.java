@@ -22,4 +22,10 @@ public class SSMTest {
         List<Post> postList = mapper.selectByConditionWithDynamicSql(post);
         Assertions.assertTrue(postList.size() > 0);
     }
+
+    @Test
+    public void coSearchTest() {
+        List<Post> postList = mapper.selectPostsAndUser();
+        System.out.println(postList);
+    }
 }

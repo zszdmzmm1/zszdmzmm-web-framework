@@ -19,4 +19,6 @@ public interface PostService {
     void update(int id, Post post);
     @Transactional
     void delete(int id);
+
+    List<Post> selectPostsAndUser();
 }
