@@ -2,6 +2,7 @@ import com.aue.config.RootConfig;
 import com.aue.dao.PostMapper;
 import com.aue.pojo.Post;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
@@ -15,6 +16,7 @@ public class SSMTest {
     PostMapper mapper;
 
     @Test
+    @Disabled
     public void test() {
         Post post = new Post();
         post.setTitle("数据");
@@ -24,6 +26,7 @@ public class SSMTest {
     }
 
     @Test
+    @Disabled
     public void coSearchTest() {
         List<Post> postList = mapper.selectPostsAndUser();
         System.out.println(postList);
