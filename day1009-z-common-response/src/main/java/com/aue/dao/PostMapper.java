@@ -25,13 +25,13 @@ public interface PostMapper {
 
     int add(Post post);
 
-    void update(Post post);
+    int update(Post post);
 
-    void deleteById(int i);
+    int deleteById(int i);
 
-    void deleteByIds(int[] ids);
+    int deleteByIds(int[] ids);
 
-    void deleteByIds(List<Integer> ids);
+    int deleteByIds(List<Integer> ids);
 
     List<Post> selectPostsAndUser();
 

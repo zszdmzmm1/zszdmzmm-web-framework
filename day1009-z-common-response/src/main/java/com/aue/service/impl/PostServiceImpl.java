@@ -42,14 +42,14 @@ public class PostServiceImpl implements PostService {
     }
 
     @Override
-    public void update(int id, Post post) {
+    public int update(int id, Post post) {
         post.setId(id);
-        postMapper.update(post);
+        return postMapper.update(post);
     }
 
     @Override
-    public void delete(int id) {
-        postMapper.deleteById(id);
+    public int delete(int id) {
+        return postMapper.deleteById(id);
     }
 
     @Override

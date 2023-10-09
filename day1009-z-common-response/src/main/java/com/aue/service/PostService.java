@@ -16,9 +16,9 @@ public interface PostService {
 
     List<Post> selectPostsByConditions(Post post);
     @Transactional
-    void update(int id, Post post);
+    int update(int id, Post post);
     @Transactional
-    void delete(int id);
+    int delete(int id);
 
     List<Post> selectPostsAndUser();
 }
