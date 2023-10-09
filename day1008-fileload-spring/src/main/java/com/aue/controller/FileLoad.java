@@ -24,11 +24,9 @@ public class FileLoad {
         File file = new File(path);
         String finalPath = path + File.separator + fileName;
         if (!file.exists()) {
-            boolean isDirExist = file.mkdirs();
-            if (isDirExist) {
-                avatar.transferTo(new File(finalPath));
-            }
+            file.mkdirs();
         }
+        avatar.transferTo(new File(finalPath));
         System.out.println("description" + description);
         return "/image/" + fileName;
     }

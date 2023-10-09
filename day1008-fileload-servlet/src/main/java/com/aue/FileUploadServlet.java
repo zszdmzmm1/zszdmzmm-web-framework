@@ -26,11 +26,9 @@ public class FileUploadServlet extends HttpServlet {
         String url = req.getServletContext().getRealPath("image");
         File file = new File(url);
         if (!file.exists()) {
-            boolean isDirsExist = file.mkdirs();
-            if(isDirsExist){
-                avatar.write(url + File.separator + avatar.getSubmittedFileName());
-            }
+            file.mkdirs();
         }
+        avatar.write(url + File.separator + avatar.getSubmittedFileName());
         System.out.println("file name:" + avatar.getSubmittedFileName());
         System.out.println("description:" + req.getParameter("description"));
     }
