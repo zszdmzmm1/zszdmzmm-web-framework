@@ -1,6 +1,7 @@
 import com.aue.config.RootConfig;
 import com.aue.dao.PostMapper;
 import com.aue.pojo.Post;
+import com.aue.pojo.User;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
@@ -30,5 +31,12 @@ public class SSMTest {
     public void coSearchTest() {
         List<Post> postList = mapper.selectPostsAndUser();
         System.out.println(postList);
+    }
+
+    @Test
+    @Disabled
+    public void coSearchTest2() {
+        List<User> userList = mapper.selectUserAndPosts();
+        System.out.println(userList);
     }
 }

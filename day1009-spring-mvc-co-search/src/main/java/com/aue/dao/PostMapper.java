@@ -2,6 +2,7 @@ package com.aue.dao;
 
 
 import com.aue.pojo.Post;
+import com.aue.pojo.User;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
@@ -33,4 +34,6 @@ public interface PostMapper {
     void deleteByIds(List<Integer> ids);
 
     List<Post> selectPostsAndUser();
+
+    List<User> selectUserAndPosts();
 }

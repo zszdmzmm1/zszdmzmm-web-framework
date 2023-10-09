@@ -7,6 +7,12 @@
         </association>
     </resultMap>
 
+    <resultMap id="user" type="User" autoMapping="true">
+        <collection property="postList" ofType="Post" autoMapping="true">
+            <result column="id" property="id"/>
+        </collection>
+    </resultMap>
+
     <select id="selectPostsByPage" resultMap="post">
         select *
         from blog_list
@@ -14,11 +20,14 @@
     </select>
 
     <select id="selectById" resultMap="post">
-        select * from blog_list where id = #{id};
+        select *
+        from blog_list
+        where id = #{id};
     </select>
 
     <select id="selectByCondition" resultMap="post">
-        select * from blog_list
+        select *
+        from blog_list
         where title like '%${title}%'
           and content like '%${content}%'
           and status = #{status};
@@ -60,9 +69,17 @@
                  left join user on blog_list.user_id = user.id;
     </select>
 
+    <select id="selectUserAndPosts" resultMap="user">
+        select *
+        from user
+                 left join blog_list on user.id = blog_list.user_id;
+    </select>
+
     <insert id="add" useGeneratedKeys="true" keyProperty="id">
-        insert into blog_list (user_id, title, cover, publish_time, last_update_time, content, view, description, status)
-        values (#{userId}, #{title}, #{cover}, #{publishTime}, #{lastUpdateTime}, #{content}, #{view}, #{description}, #{status})
+        insert into blog_list (user_id, title, cover, publish_time, last_update_time, content, view, description,
+                               status)
+        values (#{userId}, #{title}, #{cover}, #{publishTime}, #{lastUpdateTime}, #{content}, #{view}, #{description},
+                #{status})
     </insert>
 
     <update id="update">
@@ -85,7 +102,8 @@
     </update>
 
     <delete id="deleteById">
-        delete from blog_list
+        delete
+        from blog_list
         where id = #{id}
     </delete>
 
