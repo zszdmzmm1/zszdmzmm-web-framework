@@ -1,5 +1,6 @@
 package com.aue.pojo;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 @Data
@@ -10,6 +11,7 @@ public class Post {
     private String cover;
     private String publishTime;
     private String lastUpdateTime;
+    @JsonIgnore
     private String content;
     private int view;
     private String description;
