@@ -4,10 +4,7 @@ package com.aue.controller;
 import jakarta.servlet.annotation.MultipartConfig;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RequestPart;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
@@ -34,5 +31,21 @@ public class FileLoad {
     @GetMapping("view_example")
     public String viewExample() {
         return "example";
+    }
+
+    @GetMapping("forward")
+    public String forward() {
+        return "forward:hello";
+    }
+
+    @GetMapping("redirect")
+    public String redirect() {
+        return "redirect:hello";
+    }
+
+    @GetMapping("hello")
+    @ResponseBody
+    public String hello() {
+        return "hello";
     }
 }
