@@ -11,6 +11,6 @@ public class ErrorExampleController {
     @ResponseBody
     public R errorExample() {
         int i = 1 / 0;
-        return R.ok("1/0");
+        return R.ok();
     }
 }
