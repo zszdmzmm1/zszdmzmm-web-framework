@@ -11,4 +11,10 @@ public class InterceptorController {
         System.out.println("InterceptorController.interceptor");
         return R.ok();
     }
+
+    @GetMapping("demo/interceptor-plus")
+    public R interceptor2() {
+        System.out.println("InterceptorController.interceptor2");
+        return R.ok();
+    }
 }

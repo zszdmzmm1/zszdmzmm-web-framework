@@ -1,3 +1,33 @@
+GET http://localhost:8080/day1010_common_response_war/demo/interceptor-plus
+Content-Type: application/json
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.6)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-10-10T152108.200.json
+
+###
+
+GET http://localhost:8080/day1010_common_response_war/demo/interceptor
+Content-Type: application/json
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.6)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-10-10T152101.200.json
+
+###
+
+GET http://localhost:8080/day1010_common_response_war/demo/interceptor
+Content-Type: application/json
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.6)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+<> 2023-10-10T151745.200.json
+
+###
+
 GET http://localhost:8080/day1010_common_response_war/error/999
 Content-Type: application/json
 Connection: Keep-Alive
@@ -489,36 +519,6 @@ User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.6)
 Accept-Encoding: br,deflate,gzip,x-gzip
 
 <> 2023-10-09T144450.200.json
-
-###
-
-GET http://localhost:8080/day1003_spring_ssm_war/posts/co-search
-Content-Type: application/json
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.6)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-<> 2023-10-09T144236.200.json
-
-###
-
-GET http://localhost:8080/day1003_spring_ssm_war/posts/co-search
-Content-Type: application/json
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.6)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-<> 2023-10-09T144125.200.json
-
-###
-
-GET http://localhost:8080/day1003_spring_ssm_war/posts/co-search
-Content-Type: application/json
-Connection: Keep-Alive
-User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.6)
-Accept-Encoding: br,deflate,gzip,x-gzip
-
-<> 2023-10-09T120018.200.json
 
 ###
 

@@ -1,3 +1,7 @@
 ### demo/interceptor
 GET http://localhost:8080/day1010_common_response_war/demo/interceptor
 Content-Type: application/json
+
+### demo/**
+GET http://localhost:8080/day1010_common_response_war/demo/interceptor-plus
+Content-Type: application/json
