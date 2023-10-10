@@ -8,8 +8,8 @@
     </resultMap>
 
     <resultMap id="user" type="User" autoMapping="true">
-        <collection property="postList" ofType="Post" autoMapping="true">
-            <result column="id" property="id"/>
+        <id column="id" property="id"/>
+        <collection property="postList" select="selectPostsByUserId" autoMapping="true" column="id">
         </collection>
     </resultMap>
 
@@ -73,6 +73,14 @@
         select *
         from user
                  left join blog_list on user.id = blog_list.user_id;
+    </select>
+
+    <select id="selectUsers" resultMap="user">
+        select * from user;
+    </select>
+
+    <select id="selectPostsByUserId" resultType="com.aue.pojo.Post">
+        select * from blog_list where user_id = #{id};
     </select>
 
     <insert id="add" useGeneratedKeys="true" keyProperty="id">

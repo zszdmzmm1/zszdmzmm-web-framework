@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Map;
 
 public interface PostMapper {
-    List<Post> selectPostsByPage(@Param("offset")int offset, @Param("rowCount")int rowCount);
+    List<Post> selectPostsByPage(@Param("offset") int offset, @Param("rowCount") int rowCount);
 
     Post selectById(int id);
 
@@ -36,4 +36,8 @@ public interface PostMapper {
     List<Post> selectPostsAndUser();
 
     List<User> selectUserAndPosts();
+
+    List<User> selectUsers();
+
+    List<Post> selectPostsByUserId();
 }

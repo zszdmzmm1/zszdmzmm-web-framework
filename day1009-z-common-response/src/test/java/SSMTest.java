@@ -36,7 +36,7 @@ public class SSMTest {
     @Test
     @Disabled
     public void coSearchTest2() {
-        List<User> userList = mapper.selectUserAndPosts();
+        List<User> userList = mapper.selectUsers();
         System.out.println(userList);
     }
 }
