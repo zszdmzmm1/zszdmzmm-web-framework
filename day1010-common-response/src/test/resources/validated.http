@@ -1,0 +1,19 @@
+### validate
+POST http://localhost:8080/day1010_common_response_war/users
+Content-Type: application/json
+
+{
+  "email": "hjferer@qq.com",
+  "password": "fasfe",
+  "role": "role"
+}
+
+### validated no pass
+POST http://localhost:8080/day1010_common_response_war/users
+Content-Type: application/json
+
+{
+  "email": "hjferer@qq.com",
+  "password": "fa",
+  "role": "role"
+}

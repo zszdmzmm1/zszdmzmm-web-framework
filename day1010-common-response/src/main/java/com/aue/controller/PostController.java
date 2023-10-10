@@ -1,10 +1,12 @@
 package com.aue.controller;
 
+import com.aue.pojo.User;
 import com.aue.util.R;
 import com.aue.pojo.Post;
 import com.aue.service.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -47,5 +49,10 @@ public class PostController {
     @GetMapping("posts/co-search")
     public R coSearch() {
         return R.ok(postService.selectPostsAndUser());
+    }
+
+    @PostMapping("users")
+    public R store(@Validated @RequestBody User user) {
+        return R.ok(user);
     }
 }
