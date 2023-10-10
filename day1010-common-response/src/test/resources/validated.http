@@ -27,3 +27,13 @@ Content-Type: application/json
   "password": "fasa",
   "role": "role"
 }
+
+### validated @Email 自定义message信息
+POST http://localhost:8080/day1010_common_response_war/users
+Content-Type: application/json
+
+{
+  "email": "hjferer@",
+  "password": "fasa",
+  "role": "role"
+}
