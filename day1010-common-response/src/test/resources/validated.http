@@ -17,3 +17,13 @@ Content-Type: application/json
   "password": "fa",
   "role": "role"
 }
+
+### validated @Email
+POST http://localhost:8080/day1010_common_response_war/users
+Content-Type: application/json
+
+{
+  "email": "hjferer@",
+  "password": "fasa",
+  "role": "role"
+}

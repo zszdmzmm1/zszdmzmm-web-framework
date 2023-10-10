@@ -1,7 +1,7 @@
 package com.aue.pojo;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Email;
 import lombok.Data;
 import org.hibernate.validator.constraints.Length;
 
@@ -10,7 +10,7 @@ import java.util.List;
 @Data
 public class User {
     private int id;
-    @NotEmpty
+    @Email
     private String email;
 
     @Length(min = 4, max = 16)
