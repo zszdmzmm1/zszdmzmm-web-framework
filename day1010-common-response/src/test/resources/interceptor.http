@@ -1,7 +1,7 @@
-### demo/interceptor
+### demo/interceptor got excluded
 GET http://localhost:8080/day1010_common_response_war/demo/interceptor
 Content-Type: application/json
 
-### demo/**
+### demo/interceptor-plus
 GET http://localhost:8080/day1010_common_response_war/demo/interceptor-plus
 Content-Type: application/json
