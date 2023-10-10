@@ -1,6 +1,7 @@
 package com.aue.pojo;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.validation.constraints.Email;
 import lombok.Data;
 import org.hibernate.validator.constraints.Length;
@@ -14,7 +15,7 @@ public class User {
     private String email;
 
     @Length(min = 4, max = 16)
-    //@JsonIgnore
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String password;
     private String role;
 

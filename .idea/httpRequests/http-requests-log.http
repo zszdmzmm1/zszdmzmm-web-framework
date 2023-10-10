@@ -1,0 +1,51 @@
+POST http://localhost:8080/day1010_common_response_war/users
+Content-Type: application/json
+Content-Length: 72
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.6)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "email": "hjferer@qq.com",
+  "password": "fasfe",
+  "role": "role"
+}
+
+<> 2023-10-10T170520.200.json
+
+###
+
+POST http://localhost:8080/day1010_common_response_war/users
+Content-Type: application/json
+Content-Length: 72
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.6)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "email": "hjferer@qq.com",
+  "password": "fasfe",
+  "role": "role"
+}
+
+<> 2023-10-10T170501.200.json
+
+###
+
+POST http://localhost:8080/day1010_common_response_war/users
+Content-Type: application/json
+Content-Length: 69
+Connection: Keep-Alive
+User-Agent: Apache-HttpClient/4.5.14 (Java/17.0.6)
+Accept-Encoding: br,deflate,gzip,x-gzip
+
+{
+  "email": "hjferer@qq.com",
+  "password": "fa",
+  "role": "role"
+}
+
+<> 2023-10-10T170433.200.json
+
+###
+

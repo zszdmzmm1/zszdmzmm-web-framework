@@ -1,4 +1,4 @@
-### validate
+### validated @JsonProrerty 读写分离
 POST http://localhost:8080/day1010_common_response_war/users
 Content-Type: application/json
 
