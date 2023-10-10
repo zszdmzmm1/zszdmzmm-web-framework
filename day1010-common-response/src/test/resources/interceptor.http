@@ -2,6 +2,6 @@
 GET http://localhost:8080/day1010_common_response_war/demo/interceptor
 Content-Type: application/json
 
-### demo/interceptor-plus
+### demo/interceptor-plus 注意输出语句顺序
 GET http://localhost:8080/day1010_common_response_war/demo/interceptor-plus
 Content-Type: application/json
