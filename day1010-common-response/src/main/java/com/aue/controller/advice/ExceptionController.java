@@ -1,8 +1,8 @@
-package com.aue.controller;
+package com.aue.controller.advice;
 
 import com.aue.exception.BusinessException;
 import com.aue.exception.SystemException;
-import com.aue.pojo.R;
+import com.aue.util.R;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 

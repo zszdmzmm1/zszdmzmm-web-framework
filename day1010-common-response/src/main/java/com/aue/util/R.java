@@ -1,4 +1,4 @@
-package com.aue.pojo;
+package com.aue.util;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;

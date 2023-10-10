@@ -1,6 +1,6 @@
 package com.aue.controller;
 
-import com.aue.pojo.R;
+import com.aue.util.R;
 import com.aue.pojo.Post;
 import com.aue.service.PostService;
 import org.springframework.beans.factory.annotation.Autowired;

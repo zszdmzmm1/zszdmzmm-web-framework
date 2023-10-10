@@ -1,5 +1,5 @@
 ### error-example-process @JsonInclude(JsonInclude.Include.NON_NULL)
-GET http://localhost:8080/day1010_common_response_war/error
+ GET http://localhost:8080/day1010_common_response_war/error
 Content-Type: application/json
 
 ### error-example-process 99)

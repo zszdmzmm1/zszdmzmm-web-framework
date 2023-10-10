@@ -2,7 +2,7 @@ package com.aue.controller;
 
 import com.aue.exception.BusinessException;
 import com.aue.exception.SystemException;
-import com.aue.pojo.R;
+import com.aue.util.R;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
