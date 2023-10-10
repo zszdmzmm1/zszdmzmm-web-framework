@@ -5,3 +5,7 @@ Content-Type: application/json
 ### demo/interceptor-plus 注意输出语句顺序
 GET http://localhost:8080/day1010_common_response_war/demo/interceptor-plus
 Content-Type: application/json
+
+### demo/interceptor-fail 未经过postHandle
+GET http://localhost:8080/day1010_common_response_war/demo/interceptor-fail
+Content-Type: application/json

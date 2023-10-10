@@ -17,4 +17,10 @@ public class InterceptorController {
         System.out.println("InterceptorController.interceptor2");
         return R.ok();
     }
+
+    @GetMapping("demo/interceptor-fail")
+    public R interceptor3() {
+        int num = 1 / 0;
+        return R.ok();
+    }
 }
