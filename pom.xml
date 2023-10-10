@@ -20,6 +20,7 @@
         <module>day1009-spring-mvc-co-search</module>
         <module>day1009-z-common-response</module>
         <module>day1010-common-response</module>
+        <module>day1010-myframe</module>
     </modules>
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
