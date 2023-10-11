@@ -21,6 +21,7 @@
         <module>day1009-z-common-response</module>
         <module>day1010-common-response</module>
         <module>day1010-myframe</module>
+        <module>day1011-depend2my-frame</module>
     </modules>
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
