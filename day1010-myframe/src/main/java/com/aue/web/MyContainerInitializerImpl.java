@@ -1,6 +1,9 @@
 package com.aue.web;
 
+import com.aue.filter.DispatcherFilter;
+import com.aue.listener.DispatcherListener;
 import com.aue.service.IService;
+import com.aue.servlet.DispatcherServlet;
 import jakarta.servlet.ServletContainerInitializer;
 import jakarta.servlet.ServletContext;
 import jakarta.servlet.annotation.HandlesTypes;
@@ -13,5 +16,8 @@ public class MyContainerInitializerImpl implements ServletContainerInitializer {
         for (Class<?> iService : iServices) {
             System.out.println(iService);
         }
+        servletContext.addServlet("dispatcherServlet", DispatcherServlet.class).addMapping("/hello");
+        servletContext.addFilter("dispatcherFilter", DispatcherFilter.class).addMappingForUrlPatterns(null, false, "/hello");
+        servletContext.addListener(DispatcherListener.class);
     }
 }
